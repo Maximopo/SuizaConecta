@@ -18,7 +18,6 @@ body {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
-    transition: background-image 1s ease-in-out;
     color: var(--blanco);
     display: flex;
     flex-direction: column;
@@ -26,10 +25,13 @@ body {
 }
 
 header {
-    background-color: var(--azul);
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: transparent;
+    background: linear-gradient(to right,#163568, #285986,#3d82bd, #7fb3e6, #2353a1, #4375a3);
+    animation: gradientAnimation 10s ease infinite;
+
 }
 
 .logo {
@@ -78,10 +80,14 @@ main.contenido {
 }
 
 footer {
-    background-color: var(--azul-oscuro);
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
+    background-color: transparent;
+    background: linear-gradient(to right,#163568, #285986,#3d82bd, #7fb3e6, #2353a1, #4375a3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
 }
 .user-icon {
     position: absolute;
@@ -100,4 +106,29 @@ footer {
     height: 32px;
     width: 32px;
     border-radius: 50%;
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes typing {
+    from {
+    width: 0;
+    }
+    to {
+    width: 100%;
+    }
+}
+@keyframes blink {
+    50% {
+    border-color: transparent;
+    }
 }
