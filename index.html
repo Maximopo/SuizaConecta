@@ -2,21 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>SuizaConecta - Inicio</title>
+    <title>SuizaConecta</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <img src="assets/img/logo-color.png" alt="Logo Escuela" class="logo">
+        <img src="img/logo-color.png" alt="Logo Escuela" class="logo">
         <h1>SuizaConecta</h1>
-        <p>Plataforma educativa de la Escuela Técnica N.º 26 D.E. 6 Confederación Suiza</p>
+        <p>Plataforma educativa de la Escuela Técnica N.º 26 D.E.6 Confederación Suiza</p>
+
+        <div class="user-icon" id="userInfo" style="display: none;">
+            <img src="img/user-icon.png" alt="Usuario">
+            <span id="nombreUsuario"></span>
+        </div>
     </header>
 
     <main class="contenido">
         <div class="tarjeta">
-            <h2>Bienvenido</h2>
+            <h2>Bienvenido a SuizaConecta</h2>
             <p>Accedé a tus clases, tareas, comunicados y más.</p>
-            <a href="http://localhost/SuizaConecta/login/login.php" class="boton">Ingresar</a>
+            <a href="http://localhost/SuizaConecta/login/login.php" class="boton">Iniciar Sesión</a>
         </div>
     </main>
 
@@ -24,7 +29,24 @@
         <p>&copy; 2025 Escuela Técnica N.º 26 - Confederación Suiza</p>
     </footer>
 
-    <script src="js/background.js"></script>
+    <script>
+        const nombre = localStorage.getItem("usuario");
+        if (nombre) {
+            document.getElementById("userInfo").style.display = "flex";
+            document.getElementById("nombreUsuario").textContent = nombre;
+        }
+    </script>
+    <button onclick="cerrarSesion()" class="boton" style="position: absolute; top: 15px; left: 20px; background-color: var(--rojo); color: white; border: none; padding: 8px 12px; border-radius: 10px;">Cerrar sesión</button>
+
+    <script>
+        function cerrarSesion() {
+            localStorage.removeItem("usuario");
+            localStorage.removeItem("correo");
+            location.reload();
+        }
+    </script>
+
 </body>
 </html>
+
 
