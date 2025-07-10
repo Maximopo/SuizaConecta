@@ -1,18 +1,23 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Iniciar sesión - SuizaConecta</title>
-    <link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+        <h2>Crear cuenta</h2>
         <form action="verificar_login.php" method="post">
-            <input type="text" name="usuario" placeholder="Usuario" required>
+            <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
             <input type="password" name="clave" placeholder="Contraseña" required>
-            <input type="submit" value="Entrar">
+            <input type="submit" value="Registrarse e Ingresar">
         </form>
+        <p style="margin-top: 1rem;">¿Ya tenés una cuenta?
+            <a href="login_existente.php" style="color: #f6f48d;">Iniciar sesión</a>
+        </p>
     </div>
 
     <footer>
