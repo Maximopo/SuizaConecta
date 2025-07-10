@@ -1,0 +1,52 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión existente - SuizaConecta</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar sesión con una cuenta existente</h2>
+
+        <!-- Botón de Google (simulado) -->
+        <button class="google-btn" onclick="iniciarConGoogle()">Iniciar sesión con Gmail</button>
+
+        <hr style="margin: 2rem 0; border: none; border-top: 1px solid #ccc;">
+
+        <!-- Formulario tradicional -->
+        <form id="loginForm" method="post" action="verificar_login_existente.php">
+            <input type="text" name="usuario" placeholder="Nombre de usuario o correo" required>
+            <input type="password" name="clave" placeholder="Contraseña" required>
+            <input type="submit" value="Ingresar">
+        </form>
+
+        <p id="errorMsg" style="color: red; margin-top: 1rem;"></p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+        ¿No tenés una cuenta existente?
+        <a href="login.php" style="color: #f6f48d; text-decoration: underline;">Crear cuenta</a>
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        Escuela Técnica N.º 26 - Confederación Suiza
+    </footer>
+
+    <script>
+        // Simulación de login con Google
+        function iniciarConGoogle() {
+            const correo = prompt("Seleccioná tu cuenta de Gmail (esto es simulado):\nEj: max.aranguez@gmail.com");
+            if (correo) {
+                localStorage.setItem("usuario", "Max Aranguez");
+                localStorage.setItem("correo", correo);
+                localStorage.setItem("imagenPerfil", "img/user-icon.png"); // o imagen real
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
