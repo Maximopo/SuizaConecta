@@ -35,10 +35,21 @@
             document.getElementById("userInfo").style.display = "flex";
             document.getElementById("nombreUsuario").textContent = nombre;
         }
-    </script>
-    <button onclick="cerrarSesion()" class="boton" style="position: absolute; top: 15px; left: 20px; background-color: var(--rojo); color: white; border: none; padding: 8px 12px; border-radius: 10px;">Cerrar sesión</button>
+    
+        const imagenPerfil = localStorage.getItem("imagenPerfil") || "img/user-icon.png";
 
-    <script>
+        if (nombre) {
+        const userInfo = document.getElementById("userInfo");
+        const img = userInfo.querySelector("img");
+        const span = userInfo.querySelector("span");
+
+        userInfo.style.display = "flex";
+        img.src = imagenPerfil;
+        span.textContent = nombre;
+        }
+   
+        <button onclick="cerrarSesion()" class="boton" style="position: absolute; top: 15px; left: 20px; background-color: var(--rojo); color: white; border: none; padding: 8px 12px; border-radius: 10px;">Cerrar sesión</button>
+
         function cerrarSesion() {
             localStorage.removeItem("usuario");
             localStorage.removeItem("correo");
