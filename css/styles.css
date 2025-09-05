@@ -5,6 +5,11 @@
     --blanco: #ffffff;
     --bordo-oscuro: #6c1d1c;
     --azul-oscuro: #133c7f;
+    --azul-oscuro: #0d1b2a;
+    --azul-intermedio: #1b263b;
+    --azul-claro: #415a77;
+    --blanco: #f5f5f5;
+
 }
 
 * {
@@ -16,27 +21,64 @@
 
 body {
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
     color: var(--blanco);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: linear-gradient(270deg, var(--azul-claro), var(--azul-intermedio), var(--azul-oscuro));
+    background-size: 600% 600%;
+    animation: gradient 15s ease infinite;
 }
 
 header {
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: transparent;
-    background: linear-gradient(to right,#163568, #285986,#3d82bd, #7fb3e6, #2353a1, #4375a3);
-    animation: gradientAnimation 10s ease infinite;
-
+    background-color: rgba(28, 68, 132, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    
+}
+header p{
+    font-size: 18px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+header h1{
+  margin: 0;
+  color: var(--blanco);
+  
 }
 
-.logo {
-    height: 80px;
-    margin-bottom: 0.5rem;
+/* Nav */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--blanco);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: background 0.3s, color 0.3s;
+  
+}
+
+.nav-links a:hover {
+  background: var(--azul-claro);
+  color: #fff;
 }
 
 header h1 {
@@ -83,14 +125,13 @@ footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-    animation: cambioDeColor 3s infinite;
-    background-color: transparent;
-    background: linear-gradient(to right,#163568, #285986,#3d82bd, #7fb3e6, #2353a1, #4375a3);
+    background-color: rgba(28, 68, 132, 0.9);
 }
-@keyframes cambioDeColor {
-  0% { background-color: #163568, #285986; }   
-  50% { background-color: #3d82bd, #7fb3e6; }  
-  100% { background-color: #2353a1, #4375a3; }
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 
