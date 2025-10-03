@@ -5,6 +5,8 @@
     <title>SuizaConecta</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/background.js"></script>
+    <script src="js/userSession.js"></script>
+
 </head>
 <body>
     <header>
@@ -30,11 +32,24 @@
             <p>Accedé a tus clases, tareas, comunicados y más.</p>
             <a href="http://localhost/SuizaConecta/login/login.php" class="boton">Iniciar Sesión</a>
         </div>
+
     </main>
+        <section class="anuncios">
+            <h2>📢 Comunicados recientes</h2>
+            <ul>
+                <li><strong>📌 03/10:</strong> Se habilitó el formulario de contacto en “Acerca de nosotros”.</li>
+                <li><strong>📌 05/10:</strong> Se está trabajando en paneles por rol.</li>
+                <li><strong>📌 10/10:</strong> Primera carga de tareas desde la base de datos.</li>
+            </ul>
+        </section>
+
 
     <footer>
         <p>&copy; 2025 Escuela Técnica N.º 26 - Confederación Suiza</p>
     </footer>
+
+    
+
 
     <script>
         const nombre = localStorage.getItem("usuario");
