@@ -2,7 +2,7 @@
     --azul: #1c4484;
     --rojo: #8a1d1c;
     --amarillo: #f6f48d;
-    --blanco: #76027a;
+    --blanco: #ffffff;
     --bordo-oscuro: #6c1d1c;
     --azul-oscuro: #133c7f;
     --azul-oscuro: #0d1b2a;
@@ -19,7 +19,7 @@
 
 body {
     min-height: 100vh;
-    color: var(--blanco);
+    color: var(--azul-claro);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
