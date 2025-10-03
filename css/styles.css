@@ -1,3 +1,15 @@
+:root {
+    --azul: #1c4484;
+    --rojo: #8a1d1c;
+    --amarillo: #f6f48d;
+    --blanco: #76027a;
+    --bordo-oscuro: #6c1d1c;
+    --azul-oscuro: #133c7f;
+    --azul-oscuro: #0d1b2a;
+    --azul-intermedio: #1b263b;
+    --azul-claro: #415a77;
+
+}
 * {
     margin: 0;
     padding: 0;
