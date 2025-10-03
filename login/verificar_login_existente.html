@@ -18,14 +18,14 @@ if (($usuario === $usuarioValido || $usuario === $correoValido) && $clave === $c
         localStorage.setItem('usuario', '$nombreCompleto');
         localStorage.setItem('correo', '$correoValido');
         localStorage.setItem('imagenPerfil', '$imagen');
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     </script>";
 } else {
     // Login incorrecto
     echo "
     <script>
         alert('Usuario o contrasena incorrectos.');
-        window.location.href = window.location.href = "login_existente.html";
+        window.location.href = "login_existente.html";
     </script>";
 }
 ?>
