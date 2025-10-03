@@ -17,16 +17,6 @@
     </nav>
   </header>
 
-  
-  <ul>
-  <?php while($row = $result->fetch_assoc()) { ?>
-    <li>
-      <strong><?php echo $row['materia']; ?>:</strong>
-      <?php echo $row['descripcion']; ?> 
-      (Entrega: <?php echo $row['fecha_entrega']; ?>)
-    </li>
-  <?php } ?>
-  </ul>
   <main>
     <h2>Materias de nuestra escuela</h2>
     <ul>
