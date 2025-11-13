@@ -20,7 +20,6 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, var(--azul-oscuro), var(--azul));
-    background-size: cover;
     color: var(--blanco);
 }
 
@@ -46,10 +45,12 @@ body {
     gap: 1rem;
 }
 
+/* === Inputs y selects === */
+
 .login-container input[type="text"],
 .login-container input[type="email"],
 .login-container input[type="password"],
-.login-container input[type="rol"] {
+.login-container select {
     padding: 0.75rem;
     border: none;
     border-radius: 10px;
@@ -59,6 +60,9 @@ body {
     color: #333;
 }
 
+/* === Botón (para button o submit) === */
+
+.login-container button,
 .login-container input[type="submit"] {
     padding: 0.8rem;
     background-color: var(--rojo);
@@ -70,16 +74,12 @@ body {
     transition: background 0.3s;
 }
 
+.login-container button:hover,
 .login-container input[type="submit"]:hover {
     background-color: var(--bordo-oscuro);
 }
 
-footer {
-    position: absolute;
-    bottom: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
-}
+/* === Botón de Gmail === */
 .google-btn {
     background-color: white;
     color: #444;
@@ -96,4 +96,11 @@ footer {
 
 .google-btn:hover {
     background-color: #f2f2f2;
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
 }
