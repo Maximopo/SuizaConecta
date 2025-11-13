@@ -1,44 +1,108 @@
-<?php
-session_start();
-if (!isset($_SESSION['nombre'])) { header("Location: ../php/login.php"); exit(); }
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Panel del Alumno - SuizaConecta</title>
-  <link rel="stylesheet" href="/SuizaConecta/css/panel_alumno.css">
-</head>
-<body>
-  <header><h1>Bienvenido, <?php echo $_SESSION['nombre']; ?></h1></header>
-  <main>
+:root {
+    --azul: #1c4484;
+    --azul-oscuro: #133c7f;
+    --rojo: #8a1d1c;
+    --bordo-oscuro: #6c1d1c;
+    --amarillo: #f6f48d;
+    --blanco: #ffffff;
+    --gris-claro: #f5f5f5;
+}
 
-    <h2>Tus tareas pendientes</h2>
-    <p>En esta sección verás tus tareas personalizadas y fechas de entrega.</p>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-    <h2>Buscar tareas</h2>
-      <input type="text" id="buscar" placeholder="Buscar tarea..." class="input-buscar">
+/* Fondo general */
+body {
+    background: linear-gradient(to bottom right, var(--azul-oscuro), var(--azul));
+    color: var(--blanco);
+    min-height: 100vh;
+}
 
-      <ul id="lista-tareas">
-        <li>Programación: Ejercicio de bucles</li>
-        <li>Base de datos: Diagrama entidad-relación</li>
-        <li>Matemática: Funciones racionales</li>
-        <li>Laboratorio: Proyecto final</li>
-      </ul>
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.07);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
 
-      <script>
-        const input = document.getElementById('buscar');
-        const tareas = document.querySelectorAll('#lista-tareas li');
+header h1 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
 
-        input.addEventListener('keyup', () => {
-          const filtro = input.value.toLowerCase();
-          tareas.forEach(t => {
-            t.style.display = t.textContent.toLowerCase().includes(filtro) ? '' : 'none';
-          });
-        });
-      </script>
+header nav a {
+    margin-left: 1.2rem;
+    text-decoration: none;
+    color: var(--amarillo);
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-  </main>
-</body>
-</html>
+header nav a:hover {
+    color: var(--blanco);
+}
 
+/* Contenido principal */
+main {
+    padding: 2rem;
+}
+
+.panel-card {
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+}
+
+.panel-card h2 {
+    margin-bottom: 0.8rem;
+    color: var(--amarillo);
+}
+
+.lista {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.lista li {
+    padding: 0.8rem;
+    background: rgba(0,0,0,0.2);
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+}
+
+button, .btn {
+    background: var(--rojo);
+    border: none;
+    padding: 0.7rem 1rem;
+    color: var(--blanco);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 1rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, .btn:hover {
+    background: var(--bordo-oscuro);
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1rem;
+    color: rgba(255,255,255,0.6);
+}
