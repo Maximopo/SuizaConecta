@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-        <form action="../php/php/login.php"  method="POST" class="login-container">
-            <h2>Iniciar sesión</h2>
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+
+        <form action="../php/php/login.php"  method="POST">
             <input type="email" name="correo" placeholder="Correo electrónico" required>
             <input type="password" name="clave" placeholder="Contraseña" required>
             <button type="submit">Ingresar</button>
