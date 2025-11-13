@@ -10,7 +10,7 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
 <head>
   <meta charset="UTF-8">
   <title>Panel Docente - SuizaConecta</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <header>
