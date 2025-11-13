@@ -7,7 +7,7 @@ if (!isset($_SESSION['nombre'])) { header("Location: ../php/login.php"); exit();
 <head>
   <meta charset="UTF-8">
   <title>Panel del Alumno - SuizaConecta</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="/SuizaConecta/css/styles.css">
 </head>
 <body>
   <header><h1>Bienvenido, <?php echo $_SESSION['nombre']; ?></h1></header>
