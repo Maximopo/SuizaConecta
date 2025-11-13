@@ -1,4 +1,4 @@
 <?php
-include('php/conexion.php');
+include('conexion.php');
 $result = $conn->query("SELECT * FROM tareas ORDER BY fecha_entrega ASC");
 ?>
