@@ -187,4 +187,12 @@ footer {
     padding: 20px;
   }
 }
+.input-buscar {
+  padding: 8px;
+  width: 60%;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  font-size: 1em;
+}
 
