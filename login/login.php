@@ -2,35 +2,39 @@
 session_start();
 include("../php/conexion.php");
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = $_POST['correo'];
+    $correo = $conn->real_escape_string($_POST['correo']);
     $clave = $_POST['clave'];
 
-    // Buscar usuario en la base
-    $sql = "SELECT * FROM usuarios WHERE correo = '$correo' AND clave = '$clave'";
+    $sql = "SELECT * FROM usuarios WHERE correo = '$correo' LIMIT 1";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        $usuario = $result->fetch_assoc();
-        $_SESSION['nombre'] = $usuario['nombre'];
-        $_SESSION['rol'] = $usuario['rol'];
+    if ($result && $result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        $hash = $user['clave'];
 
-        // Redirigir según el rol
-        switch ($usuario['rol']) {
-            case 'alumno':
-                header("Location: ../paneles/panel_alumno.php");
-                break;
-            case 'docente':
-                header("Location: ../paneles/panel_docente.php");
-                break;
-            case 'preceptor':
-                header("Location: ../paneles/panel_preceptor.php");
-                break;
+        if (password_verify($clave, $hash)) {
+            // contraseña correcta
+            $_SESSION['nombre'] = $user['nombre'];
+            $_SESSION['rol'] = $user['rol'];
+            $_SESSION['id'] = $user['id'];
+
+            switch ($user['rol']) {
+                case 'docente':
+                    header("Location: ../paneles/panel_docente.php");
+                    break;
+                case 'preceptor':
+                    header("Location: ../paneles/panel_preceptor.php");
+                    break;
+                default:
+                    header("Location: ../paneles/panel_alumno.php");
+            }
+            exit();
+        } else {
+            echo "<script>alert('Correo o contraseña incorrectos.'); window.location='../php/login.php';</script>";
         }
     } else {
-        echo "<script>alert('Correo o contraseña incorrectos'); window.location='../login.php';</script>";
+        echo "<script>alert('Correo o contraseña incorrectos.'); window.location='../php/login.php';</script>";
     }
 }
 ?>
-
