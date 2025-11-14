@@ -17,7 +17,6 @@ $rol = $_SESSION['rol'];
   <meta charset="UTF-8">
   <title>Clases - SuizaConecta</title>
   <link rel="stylesheet" href="/SuizaConecta/css/clases.css">
-  <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
 
 </head>
 <body>
@@ -27,7 +26,7 @@ $rol = $_SESSION['rol'];
     <nav>
         <ul class="nav-links">
                 <li><a href="/SuizaConecta/index.html">Inicio</a></li>
-                <li><a href="configuracion.php">Mi cuenta</a></li>
+                <li><a href="/SuizaConecta/paneles/configuracion.php">Mi cuenta</a></li>
                 <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
                 <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
@@ -61,24 +60,21 @@ $rol = $_SESSION['rol'];
         <button class="btn">✏️ Editar mis clases</button>
         <button class="btn">📄 Subir actividad</button>
         <button class="btn">📚 Ver trabajos entregados</button>
-        <div class="clase-card">
-            <div class="clase-banner" style="background-image: url('/SuizaConecta/uploads/banners/<?php echo $clase['banner']; ?>')"></div>
-            <h3><?php echo $clase['nombre']; ?></h3>
-            <p><?php echo $clase['descripcion']; ?></p>
-            <a href="ver_clase.php?id=<?php echo $clase['id']; ?>" class="btn">Entrar</a>
-        </div>
 
     </section>
     <?php endif; ?>
 
     <?php if ($rol === 'alumno'): ?>
+        
     <section class="panel-roles">
         <h3>Opciones del Alumno</h3>
 
         <button class="btn">📌 Ver mis clases</button>
         <button class="btn">📥 Entregar tarea</button>
         <button class="btn">📘 Ver material del curso</button>
+        
     </section>
+    
     <?php endif; ?>
 
     <?php if ($rol === 'preceptor'): ?>
