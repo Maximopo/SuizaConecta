@@ -22,8 +22,6 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'preceptor') {
     </nav>
 </header>
 
-main>
-
     <div class="panel-card">
         <h2>Asistencias del Curso</h2>
         <ul class="lista">
