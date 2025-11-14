@@ -1,11 +1,19 @@
 <?php
 session_start();
-$foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 
-if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
-    header("Location: /SuizaConecta/login/login.html");
+
+
+if (!isset($_SESSION['id'])) {
+    header("Location: /SuizaConecta/login.html");
     exit();
 }
+
+include("../php/php/conexion.php");
+
+$nombre = $_SESSION['nombre'];
+$rol = $_SESSION['rol'];
+$foto = isset($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
+$id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,13 +25,17 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
 <body>
 
 <header>
-    <h1>Docente: <?php echo $_SESSION['nombre']; ?></h1>
+    <h1>Panel del Alumno</h1>
     <nav>
-        <a href="/SuizaConecta/index.html">Inicio</a>
-        <a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a>
-        <li class="perfil">
+        <ul class="nav-links">
+            <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
+            <li><a href="configuracion.php">Mi cuenta</a></li>
+            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+            <li class="user-info"><?php echo $nombre; ?></li>
+            <li class="perfil">
             <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
-        </li>
+            </li>
+        </ul>
     </nav>
 </header>
 
