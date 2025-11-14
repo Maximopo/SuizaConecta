@@ -1,64 +1,58 @@
 <?php
 session_start();
 if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
-  header("Location: ../php/login.php");
-  exit();
+    header("Location: /SuizaConecta/login.html");
+    exit();
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Panel Docente - SuizaConecta</title>
-  <link rel="stylesheet" href="../css/styles.css">
+    <meta charset="UTF-8">
+    <title>Panel del Docente - SuizaConecta</title>
+    <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
 </head>
 <body>
-  <header>
-    <h1>Panel del Docente</h1>
-  </header>
-  <main>
 
-    <h2>Buscar tareas</h2>
-      <input type="text" id="buscar" placeholder="Buscar tarea..." class="input-buscar">
+<header>
+    <h1>Docente: <?php echo $_SESSION['nombre']; ?></h1>
+    <nav>
+        <a href="/SuizaConecta/index.html">Inicio</a>
+        <a href="/SuizaConecta/login/logout.php">Salir</a>
+    </nav>
+</header>
 
-      <ul id="lista-tareas">
-        <li>Programación: Ejercicio de bucles</li>
-        <li>Base de datos: Diagrama entidad-relación</li>
-        <li>Matemática: Funciones racionales</li>
-        <li>Laboratorio: Proyecto final</li>
-      </ul>
+<main>
 
-      <script>
-        const input = document.getElementById('buscar');
-        const tareas = document.querySelectorAll('#lista-tareas li');
+    <div class="panel-card">
+        <h2>Subir Material</h2>
+        <form action="/SuizaConecta/php/php/subir_tarea.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="archivo" required>
+            <button type="submit">Subir Archivo</button>
+        </form>
+    </div>
 
-        input.addEventListener('keyup', () => {
-          const filtro = input.value.toLowerCase();
-          tareas.forEach(t => {
-            t.style.display = t.textContent.toLowerCase().includes(filtro) ? '' : 'none';
-          });
-        });
-      </script>
+    <div class="panel-card">
+        <h2>Tareas de Hoy</h2>
+        <ul class="lista">
+            <li>Entregar correcciones de matemáticas del curso 5°2da.</li>
+            <li>Preparar guía de laboratorio N°4.</li>
+        </ul>
+    </div>
 
-    <h2>Subida de archivos</h2>
-    <form action="../php/subir_tarea.php" method="POST" enctype="multipart/form-data">
-      <input type="file" name="archivo" accept=".pdf,.jpg,.png,.docx" required>
-      <button type="submit">Subir Archivo</button>
-    </form>
+    <div class="panel-card">
+        <h2>Mis Comunicados</h2>
+        <ul class="lista">
+            <li>Nuevo material subido para el curso 5°1ra.</li>
+            <li>Entrega del informe final la semana próxima.</li>
+        </ul>
+    </div>
 
-    <h3>Archivos subidos recientemente:</h3>
-    <ul>
-      <?php
-      $archivos = scandir("../uploads/");
-      foreach ($archivos as $archivo) {
-        if ($archivo != "." && $archivo != "..") {
-          echo "<li><a href='../uploads/$archivo' target='_blank'>$archivo</a></li>";
-        }
-      }
-      ?>
-    </ul>
+</main>
 
-  </main>
+<footer>
+    SuizaConecta – Plataforma docente
+</footer>
+
 </body>
 </html>
-
