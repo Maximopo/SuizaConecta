@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("/SuizaConecta/php/php/conexion.php");
 
 
 if (!isset($_SESSION['id'])) {
