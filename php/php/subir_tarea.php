@@ -61,7 +61,7 @@ $prefijo = time() . '_' . bin2hex(random_bytes(4));
 $nombreFinal = $prefijo . '_' . $nombreSeguro;
 
 // Crear carpeta uploads si no existe
-$uploadDir = __DIR__ . '/../uploads/';
+$uploadDir = __DIR__ . '/SuizaConecta/php/php/uploads/';
 if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
 $destino = $uploadDir . $nombreFinal;
