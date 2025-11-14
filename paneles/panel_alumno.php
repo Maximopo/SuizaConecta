@@ -1,51 +1,70 @@
 <?php
 session_start();
-if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'alumno') {
+
+if (!isset($_SESSION['id'])) {
     header("Location: /SuizaConecta/login.html");
     exit();
 }
+
+include("../php/php/conexion.php");
+
+$nombre = $_SESSION['nombre'];
+$rol = $_SESSION['rol'];
+$foto = isset($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
+$id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Panel del Alumno - SuizaConecta</title>
-    <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
+
+    <link rel="stylesheet" href="/SuizaConecta/css/clases.css">
 </head>
 <body>
 
 <header>
-    <h1>Alumno: <?php echo $_SESSION['nombre']; ?></h1>
+    <h1>Panel del Alumno</h1>
     <nav>
-        <a href="/SuizaConecta/index.html">Inicio</a>
-        <a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a>
+        <ul class="nav-links">
+            <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
+            <li><a href="configuracion.php">Mi cuenta</a></li>
+            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+
+            <li class="perfil">
+                <img src="/SuizaConecta/uploads/perfiles/<?php echo $foto; ?>" class="perfil-img">
+            </li>
+        </ul>
     </nav>
 </header>
 
 <main>
+    <h2>Mis Clases</h2>
 
-    <div class="panel-card">
-        <h2>Tareas Asignadas</h2>
-        <ul class="lista">
-            <li>Matemática – Funciones racionales (Entrega: 23/10)</li>
-            <li>Programación – Proyecto en PHP (Entrega: 27/10)</li>
-            <li>Laboratorio – Informe N°3 (Entrega: 30/10)</li>
-        </ul>
-    </div>
+    <?php
+    
+    $sql = "SELECT c.* 
+            FROM clases c
+            JOIN clase_alumnos ca ON ca.clase_id = c.id
+            WHERE ca.alumno_id = $id";
 
-    <div class="panel-card">
-        <h2>Comunicados</h2>
-        <ul class="lista">
-            <li>Recordatorio: reunión del curso el viernes a las 11:00.</li>
-            <li>Nuevo material disponible en Programación.</li>
-        </ul>
-    </div>
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        while ($clase = $result->fetch_assoc()) {
+            echo "
+            <div class='card'>
+                <h3>".$clase['nombre']."</h3>
+                <p>".$clase['descripcion']."</p>
+                <a href='/SuizaConecta/php/php/ver_clase.php?id=".$clase['id']."' class='btn'>Entrar</a>
+            </div>";
+        }
+    } else {
+        echo "<p>No estás unido a ninguna clase todavía.</p>";
+    }
+    ?>
 
 </main>
-
-<footer>
-    SuizaConecta – Plataforma educativa de la ET Nº26
-</footer>
 
 </body>
 </html>
