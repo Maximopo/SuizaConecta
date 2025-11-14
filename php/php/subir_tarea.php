@@ -75,8 +75,8 @@ if (move_uploaded_file($tmpPath, $destino)) {
         $stmt->execute();
         $stmt->close();
     }
-    echo "<script>alert('Archivo subido correctamente'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('Archivo subido correctamente'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
 } else {
-    echo "<script>alert('Error al mover el archivo'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('Error al mover el archivo'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
 }
 ?>
