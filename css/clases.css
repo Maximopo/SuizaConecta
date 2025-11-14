@@ -14,11 +14,11 @@
     font-family: "Segoe UI", sans-serif;
 }
 .perfil-img {
-    width: 40px;               
-    height: 40px;
+    width: 60px;               
+    height: 60px;
     border-radius: 50%;        
     object-fit: cover;         
-    border: 2px solid white;  
+    border: 1px solid rgb(0, 0, 0);  
 }
 body {
     background: linear-gradient(to right, var(--azul-oscuro), var(--azul));
@@ -37,7 +37,7 @@ header {
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--amarillo);
 }
 
