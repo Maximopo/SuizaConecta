@@ -1,5 +1,7 @@
 <?php
 session_start();
+$foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
+
 include("../php/php/conexion.php");
 
 if (!isset($_SESSION['id'])) {
@@ -22,12 +24,12 @@ if (!isset($_SESSION['id'])) {
 
     <nav>
         <ul class="nav-links">
+            <li><a href="/SuizaConecta/index.html">Inicio</a></li>
             <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
-            <li><a href="configuracion.php">Mi cuenta</a></li>
             <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
 
             <li class="perfil">
-                <img src="/SuizaConecta/uploads/perfiles/<?php echo $foto; ?>" class="perfil-img">
+                <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
         </ul>
     </nav>
