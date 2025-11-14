@@ -17,6 +17,8 @@ $rol = $_SESSION['rol'];
   <meta charset="UTF-8">
   <title>Clases - SuizaConecta</title>
   <link rel="stylesheet" href="/SuizaConecta/css/clases.css">
+  <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
+
 </head>
 <body>
 
@@ -24,15 +26,13 @@ $rol = $_SESSION['rol'];
     <h1>SuizaConecta</h1>
     <nav>
         <ul class="nav-links">
-            <li><a href="/SuizaConecta/index.html">Inicio</a></li>
-            <li><a href="/SuizaConecta/acerca.html">Acerca de nosotros</a></li>
-            <li><a href="/SuizaConecta/paneles/panel_<?php echo $rol; ?>.php">Mi Panel</a></li>
-            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a></li>
-            <li class="user-info"><?php echo $nombre; ?></li>
+                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
+                <li><a href="configuracion.php">Mi cuenta</a></li>
+                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+                <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
-                <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
+            <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
-            
         </ul>
     </nav>
 </header>
@@ -40,7 +40,6 @@ $rol = $_SESSION['rol'];
 <main>
     <h2>Clases de la Escuela</h2>
 
-    <!-- Lista general de materias -->
     <section class="lista-materias">
       <h3>Materias Disponibles</h3>
       <ul>
@@ -54,7 +53,6 @@ $rol = $_SESSION['rol'];
       </ul>
     </section>
 
-    <!-- Panel especial para docentes -->
     <?php if ($rol === 'docente'): ?>
     <section class="panel-roles">
         <h3>Opciones del Docente</h3>
@@ -63,10 +61,16 @@ $rol = $_SESSION['rol'];
         <button class="btn">✏️ Editar mis clases</button>
         <button class="btn">📄 Subir actividad</button>
         <button class="btn">📚 Ver trabajos entregados</button>
+        <div class="clase-card">
+            <div class="clase-banner" style="background-image: url('/SuizaConecta/uploads/banners/<?php echo $clase['banner']; ?>')"></div>
+            <h3><?php echo $clase['nombre']; ?></h3>
+            <p><?php echo $clase['descripcion']; ?></p>
+            <a href="ver_clase.php?id=<?php echo $clase['id']; ?>" class="btn">Entrar</a>
+        </div>
+
     </section>
     <?php endif; ?>
 
-    <!-- Panel especial para alumnos -->
     <?php if ($rol === 'alumno'): ?>
     <section class="panel-roles">
         <h3>Opciones del Alumno</h3>
@@ -77,7 +81,6 @@ $rol = $_SESSION['rol'];
     </section>
     <?php endif; ?>
 
-    <!-- Panel para preceptor -->
     <?php if ($rol === 'preceptor'): ?>
     <section class="panel-roles">
         <h3>Opciones del Preceptor</h3>
