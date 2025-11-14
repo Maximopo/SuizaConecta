@@ -51,6 +51,22 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'preceptor') {
         </ul>
     </div>
 
+    <section>
+    <h3>Clases por Docente</h3>
+    <?php
+    $sql = "SELECT c.nombre AS clase, u.nombre AS docente
+            FROM clases c 
+            JOIN usuarios u ON c.docente_id = u.id";
+    $res = $conn->query($sql);
+
+    while ($fila = $res->fetch_assoc()) {
+        echo "<div class='item'>
+                <strong>{$fila['clase']}</strong> - {$fila['docente']}
+              </div>";
+    }
+    ?>
+    </section>
+
 </main>
 
 <footer>
