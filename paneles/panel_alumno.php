@@ -19,20 +19,21 @@ $id = $_SESSION['id'];
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel del Alumno - SuizaConecta</title>
-
+    <title>Alumno - SuizaConecta</title>
+    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
 </head>
 <body>
 
 <header>
-    <h1>Panel del Alumno</h1>
+    <h1> Alumno</h1>
     <nav>
         <ul class="nav-links">
-            <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
-            <li><a href="configuracion.php">Mi cuenta</a></li>
-            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
-            <li class="user-info"><?php echo $nombre; ?></li>
+                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
+                <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
+                <li><a href="configuracion.php">Mi cuenta</a></li>
+                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+                <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
             <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
