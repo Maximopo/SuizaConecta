@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("/SuizaConecta/php/php/conexion.php");
+
 $foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 $nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Usuario";
 
