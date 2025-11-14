@@ -21,7 +21,6 @@ $id = $_SESSION['id'];
     <meta charset="UTF-8">
     <title>Preceptor - SuizaConecta</title>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
-    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
 
 </head>
 <body>
