@@ -4,16 +4,24 @@ include("conexion.php");
 
 $id = $_SESSION['id'];
 
-$foto = $_FILES["foto"];
+if (isset($_FILES['foto'])) {
+    
+    $nombreArchivo = time() . "_" . basename($_FILES["foto"]["name"]);
+    $rutaDestino = "/SuizaConecta/php/uploads/perfiles/" . $nombreArchivo;
 
-$nombre_archivo = "user_" . $id . "_" . basename($foto["name"]);
-$ruta = "/SuizaConecta/uploads/perfiles/" . $nombre_archivo;
+    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $rutaDestino)) {
 
-move_uploaded_file($foto["tmp_name"], $ruta);
+        
+        $sql = "UPDATE usuarios SET foto='$nombreArchivo' WHERE id=$id";
+        $conn->query($sql);
 
-$conn->query("UPDATE usuarios SET foto_perfil='$nombre_archivo' WHERE id=$id");
+        $_SESSION['foto'] = $nombreArchivo;
 
-$_SESSION['foto'] = $nombre_archivo;
-
-header("Location: /SuizaConecta/paneles/configuracion.php");
+        header("Location: /SuizaConecta/paneles/configuracion.php?ok=1");
+        exit();
+    } else {
+        header("Location: /SuizaConecta/paneles/configuracion.php?error=subida");
+        exit();
+    }
+}
 ?>
