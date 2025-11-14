@@ -14,12 +14,11 @@
     font-family: "Segoe UI", sans-serif;
 }
 .perfil-img {
-    width: 38px;
-    height: 38px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--amarillo);
-    cursor: pointer;
+    width: 40px;               
+    height: 40px;
+    border-radius: 50%;        
+    object-fit: cover;         
+    border: 2px solid white;  
 }
 body {
     background: linear-gradient(to right, var(--azul-oscuro), var(--azul));
