@@ -27,7 +27,7 @@ $rol = $_SESSION['rol'];
             <li><a href="/SuizaConecta/index.html">Inicio</a></li>
             <li><a href="/SuizaConecta/acerca.html">Acerca de nosotros</a></li>
             <li><a href="/SuizaConecta/paneles/panel_<?php echo $rol; ?>.php">Mi Panel</a></li>
-            <li class="user-info"><?php echo $nombre . " (" . $rol . ")"; ?></li>
+            <li class="user-info"><?php echo $nombre; ?></li>
         </ul>
     </nav>
 </header>
