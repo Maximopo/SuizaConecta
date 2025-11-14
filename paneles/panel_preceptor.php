@@ -18,7 +18,7 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'preceptor') {
     <h1>Preceptor: <?php echo $_SESSION['nombre']; ?></h1>
     <nav>
         <a href="/SuizaConecta/index.html">Inicio</a>
-        <a href="/SuizaConecta/php/logout.php">Salir</a>
+        <a href="/SuizaConecta/login/logout.php">Salir</a>
     </nav>
 </header>
 
