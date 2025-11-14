@@ -20,7 +20,6 @@ $id = $_SESSION['id'];
 <head>
     <meta charset="UTF-8">
     <title>Alumno - SuizaConecta</title>
-    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
 </head>
 <body>
@@ -52,6 +51,7 @@ $id = $_SESSION['id'];
             WHERE ca.alumno_id = $id";
 
     $result = $conn->query($sql);
+while ($clase = $clases->fetch_assoc()):
 
     if ($result && $result->num_rows > 0) {
         while ($clase = $result->fetch_assoc()) {
