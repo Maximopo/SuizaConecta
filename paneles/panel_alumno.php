@@ -1,108 +1,51 @@
-:root {
-    --azul: #1c4484;
-    --azul-oscuro: #133c7f;
-    --rojo: #8a1d1c;
-    --bordo-oscuro: #6c1d1c;
-    --amarillo: #f6f48d;
-    --blanco: #ffffff;
-    --gris-claro: #f5f5f5;
+<?php
+session_start();
+if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'alumno') {
+    header("Location: /SuizaConecta/login.html");
+    exit();
 }
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Alumno - SuizaConecta</title>
+    <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
+</head>
+<body>
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+<header>
+    <h1>Alumno: <?php echo $_SESSION['nombre']; ?></h1>
+    <nav>
+        <a href="/SuizaConecta/index.html">Inicio</a>
+        <a href="/SuizaConecta/php/logout.php">Salir</a>
+    </nav>
+</header>
 
-/* Fondo general */
-body {
-    background: linear-gradient(to bottom right, var(--azul-oscuro), var(--azul));
-    color: var(--blanco);
-    min-height: 100vh;
-}
+<main>
 
-/* Header */
-header {
-    background: rgba(255, 255, 255, 0.07);
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(4px);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
+    <div class="panel-card">
+        <h2>Tareas Asignadas</h2>
+        <ul class="lista">
+            <li>Matemática – Funciones racionales (Entrega: 23/10)</li>
+            <li>Programación – Proyecto en PHP (Entrega: 27/10)</li>
+            <li>Laboratorio – Informe N°3 (Entrega: 30/10)</li>
+        </ul>
+    </div>
 
-header h1 {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
+    <div class="panel-card">
+        <h2>Comunicados</h2>
+        <ul class="lista">
+            <li>Recordatorio: reunión del curso el viernes a las 11:00.</li>
+            <li>Nuevo material disponible en Programación.</li>
+        </ul>
+    </div>
 
-header nav a {
-    margin-left: 1.2rem;
-    text-decoration: none;
-    color: var(--amarillo);
-    font-weight: bold;
-    transition: color 0.3s;
-}
+</main>
 
-header nav a:hover {
-    color: var(--blanco);
-}
+<footer>
+    SuizaConecta – Plataforma educativa de la ET Nº26
+</footer>
 
-/* Contenido principal */
-main {
-    padding: 2rem;
-}
-
-.panel-card {
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.1);
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    backdrop-filter: blur(6px);
-}
-
-.panel-card h2 {
-    margin-bottom: 0.8rem;
-    color: var(--amarillo);
-}
-
-.lista {
-    list-style: none;
-    margin-top: 1rem;
-}
-
-.lista li {
-    padding: 0.8rem;
-    background: rgba(0,0,0,0.2);
-    margin-bottom: 0.5rem;
-    border-radius: 8px;
-}
-
-button, .btn {
-    background: var(--rojo);
-    border: none;
-    padding: 0.7rem 1rem;
-    color: var(--blanco);
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-    margin-top: 1rem;
-    display: inline-block;
-    text-decoration: none;
-}
-
-button:hover, .btn:hover {
-    background: var(--bordo-oscuro);
-}
-
-footer {
-    margin-top: 3rem;
-    text-align: center;
-    padding: 1rem;
-    color: rgba(255,255,255,0.6);
-}
+</body>
+</html>
