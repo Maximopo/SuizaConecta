@@ -19,6 +19,9 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
     <nav>
         <a href="/SuizaConecta/index.html">Inicio</a>
         <a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a>
+        <li class="perfil">
+            <img src="/SuizaConecta/uploads/perfiles/<?php echo $_SESSION['foto']; ?>" class="perfil-img">
+        </li>
     </nav>
 </header>
 
@@ -26,7 +29,7 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
 
     <div class="panel-card">
         <h2>Subir Material</h2>
-        <form action="/SuizaConecta/php/php/subir_tarea.php" method="POST" enctype="multipart/form-data">
+        <form action="/SuizaConecta/php/php/subir_material.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="archivo" required>
             <button type="submit">Subir Archivo</button>
         </form>
