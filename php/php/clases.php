@@ -2,7 +2,6 @@
 session_start();
 $foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 
-// Si no hay sesión → volver al login
 if (!isset($_SESSION['nombre']) || !isset($_SESSION['rol'])) {
     header("Location: /SuizaConecta/login/login.html");
     exit();
@@ -28,11 +27,12 @@ $rol = $_SESSION['rol'];
             <li><a href="/SuizaConecta/index.html">Inicio</a></li>
             <li><a href="/SuizaConecta/acerca.html">Acerca de nosotros</a></li>
             <li><a href="/SuizaConecta/paneles/panel_<?php echo $rol; ?>.php">Mi Panel</a></li>
+            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a></li>
             <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
                 <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
-            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a></li>
+            
         </ul>
     </nav>
 </header>
