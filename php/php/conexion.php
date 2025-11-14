@@ -1,19 +1,13 @@
 <?php
-// Archivo: php/conexion.php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "suizaconecta";
 
-$servername = "localhost";
-$username   = "root";
-$password   = ""; 
-$dbname     = "suizaconecta";
+$conn = new mysqli($host, $user, $pass, $db);
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
 if ($conn->connect_error) {
-    die("Error de conexión a la base de datos: " . $conn->connect_error);
+    die("Error en la conexión: " . $conn->connect_error);
 }
-
-// Opcional: forzar UTF-8 (evita problemas con tildes)
-$conn->set_charset("utf8");
 ?>
+
