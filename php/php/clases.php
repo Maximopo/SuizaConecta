@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("conexion.php");
+
 $foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 
 if (!isset($_SESSION['nombre']) || !isset($_SESSION['rol'])) {
