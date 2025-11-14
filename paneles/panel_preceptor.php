@@ -19,8 +19,10 @@ $id = $_SESSION['id'];
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel del Preceptor - SuizaConecta</title>
+    <title>Preceptor - SuizaConecta</title>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
+    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
+
 </head>
 <body>
 
@@ -28,11 +30,11 @@ $id = $_SESSION['id'];
     <h1>Preceptor: <?php echo $_SESSION['nombre']; ?></h1>
     <nav>
         <ul class="nav-links">
-            <li><a href="/SuizaConecta/index.html">Inicio</a></li>
-            <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
-            <li><a href="configuracion.php">Mi cuenta</a></li>
-            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
-            <li class="user-info"><?php echo $nombre; ?></li>
+                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
+                <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
+                <li><a href="configuracion.php">Mi cuenta</a></li>
+                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+                <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
             <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
