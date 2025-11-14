@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("/SuizaConecta/php/php/conexion.php");
 $foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 $nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Usuario";
 
@@ -9,7 +10,6 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'preceptor') {
 
 }
 
-include("../php/php/conexion.php");
 $nombre = $_SESSION['nombre'];
 $rol = $_SESSION['rol'];
 $foto = isset($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
