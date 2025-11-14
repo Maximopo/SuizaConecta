@@ -28,6 +28,7 @@ $id = $_SESSION['id'];
     <h1>Panel del Alumno</h1>
     <nav>
         <ul class="nav-links">
+            <li><a href="/SuizaConecta/index.html">Inicio</a></li>
             <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
             <li><a href="configuracion.php">Mi cuenta</a></li>
             <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
