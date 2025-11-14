@@ -18,7 +18,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between ;
+    justify-content: center ;
     align-items: center;
     background: linear-gradient(to right, var(--azul-oscuro), var(--azul));
     color: var(--blanco);
@@ -44,7 +44,9 @@ header h1{
   color: var(--blanco);
   
 }
-
+nav{
+    
+}
 .nav-links {
   list-style: none;
   display: flex;
