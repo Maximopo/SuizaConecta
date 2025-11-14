@@ -19,20 +19,23 @@ $id = $_SESSION['id'];
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel del Docente - SuizaConecta</title>
+    <title>Docente - SuizaConecta</title>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
+    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
+
 </head>
 <body>
 
 <header>
-    <h1>Panel del Alumno</h1>
+    <h1>Docente</h1>
     <nav>
         <ul class="nav-links">
-            <li><a href="/SuizaConecta/index.html">Inicio</a></li>
-            <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
-            <li><a href="configuracion.php">Mi cuenta</a></li>
-            <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
-            <li class="user-info"><?php echo $nombre; ?></li>
+                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
+                <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
+                <li><a href="configuracion.php">Mi cuenta</a></li>
+                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+                <li class="user-info"><?php echo $nombre; ?></li>
+           
             <li class="perfil">
             <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
@@ -49,6 +52,14 @@ $id = $_SESSION['id'];
             <button type="submit">Subir Archivo</button>
         </form>
     </div>
+
+    <div class="clase-card">
+        <div class="clase-banner" style="background-image: url('/SuizaConecta/uploads/banners/<?php echo $clase['banner']; ?>')"></div>
+        <h3><?php echo $clase['nombre']; ?></h3>
+        <p><?php echo $clase['descripcion']; ?></p>
+        <a href="ver_clase.php?id=<?php echo $clase['id']; ?>" class="btn">Entrar</a>
+    </div>
+
 
     <div class="panel-card">
         <h2>Tareas de Hoy</h2>
