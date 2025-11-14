@@ -19,6 +19,9 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'preceptor') {
     <nav>
         <a href="/SuizaConecta/index.html">Inicio</a>
         <a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a>
+        <li class="perfil">
+            <img src="/SuizaConecta/uploads/perfiles/<?php echo $_SESSION['foto']; ?>" class="perfil-img">
+        </li>
     </nav>
 </header>
 
