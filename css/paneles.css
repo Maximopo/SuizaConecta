@@ -34,21 +34,42 @@ header {
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
+/* HEADER -------------------------------------- */
+header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 20, 50, 0.3);
+    backdrop-filter: blur(6px);
+}
+
 header h1 {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-header nav a {
-    margin-left: 1.2rem;
-    text-decoration: none;
+    font-size: 1.8rem;
     color: var(--amarillo);
-    font-weight: bold;
-    transition: color 0.3s;
 }
 
-header nav a:hover {
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav .nav-links li a {
     color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .nav-links li a:hover {
+    color: var(--amarillo);
+}
+
+.user-info {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
 /* Contenido principal */
@@ -56,13 +77,12 @@ main {
     padding: 2rem;
 }
 .perfil-img {
-    width: 40px;              
-    height: 40px;
+    width: 60px;               
+    height: 60px;
     border-radius: 50%;        
     object-fit: cover;         
-    border: 2px solid white;   
+    border: 1px solid rgb(0, 0, 0);  
 }
-
 
 .panel-card {
     padding: 1.5rem;
