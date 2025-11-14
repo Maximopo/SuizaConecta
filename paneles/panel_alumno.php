@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("/SuizaConecta/php/php/conexion.php");
 
 
 if (!isset($_SESSION['id'])) {
@@ -8,7 +8,6 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 
-include("../php/php/conexion.php");
 
 $nombre = $_SESSION['nombre'];
 $rol = $_SESSION['rol'];
@@ -60,7 +59,7 @@ $id = $_SESSION['id'];
             <div class='card'>
                 <h3>".$clase['nombre']."</h3>
                 <p>".$clase['descripcion']."</p>
-                <a href='/SuizaConecta/php/php/ver_clase.php?id=".$clase['id']."' class='btn'>Entrar</a>;
+                <a href='/SuizaConecta/php/php/ver_clase.php?id=".$clase['id']."' class='btn'>Entrar</a>
             </div>";
         }
     } else {
