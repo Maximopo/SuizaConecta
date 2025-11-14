@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("/SuizaConecta/php/php/conexion.php");
+include("conexion.php");
 
 if ($_SESSION['rol'] !== 'docente') {
     header("Location: /SuizaConecta/paneles/panel_alumno.php");
