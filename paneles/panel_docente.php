@@ -1,5 +1,7 @@
 <?php
 session_start();
+$foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
+
 if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
     header("Location: /SuizaConecta/login/login.html");
     exit();
@@ -20,7 +22,7 @@ if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
         <a href="/SuizaConecta/index.html">Inicio</a>
         <a href="/SuizaConecta/php/php/logout.php">Cerrar Sesión</a>
         <li class="perfil">
-            <img src="/SuizaConecta/uploads/perfiles/<?php echo $_SESSION['foto']; ?>" class="perfil-img">
+            <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
         </li>
     </nav>
 </header>
