@@ -1,5 +1,7 @@
 <?php
 session_start();
+$foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
+
 
 if (!isset($_SESSION['id'])) {
     header("Location: /SuizaConecta/login.html");
@@ -32,7 +34,7 @@ $id = $_SESSION['id'];
             <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
 
             <li class="perfil">
-                <img src="/SuizaConecta/uploads/perfiles/<?php echo $foto; ?>" class="perfil-img">
+            <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
         </ul>
     </nav>
