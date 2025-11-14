@@ -100,6 +100,23 @@ main h2 {
     border-radius: 14px;
     margin-bottom: 2rem;
 }
+.clase-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.clase-banner {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+}
+
 
 .btn {
     display: block;
