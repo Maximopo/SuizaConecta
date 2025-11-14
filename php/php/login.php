@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit();
         } else {
-            echo "<script>alert('Correo o contraseña incorrectos.'); window.location='../php/login.php';</script>";
+            echo "<script>alert('Correo o contraseña incorrectos.'); window.location='/SuizaConecta/login/login.html';</script>";
         }
     } else {
-        echo "<script>alert('Correo o contraseña incorrectos.'); window.location='../php/login.php';</script>";
+        echo "<script>alert('Correo o contraseña incorrectos.'); window.location='/SuizaConecta/login/login.html';</script>";
     }
 }
 ?>
