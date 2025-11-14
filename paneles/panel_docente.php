@@ -14,6 +14,8 @@ $nombre = $_SESSION['nombre'];
 $rol = $_SESSION['rol'];
 $foto = isset($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 $id = $_SESSION['id'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,7 +23,6 @@ $id = $_SESSION['id'];
     <meta charset="UTF-8">
     <title>Docente - SuizaConecta</title>
     <link rel="stylesheet" href="/SuizaConecta/css/paneles.css">
-    <script src="/SuizaConecta/js/perfil_menu.js" defer></script>
 
 </head>
 <body>
@@ -43,6 +44,7 @@ $id = $_SESSION['id'];
     </nav>
 </header>
 
+
 <main>
 
     <div class="panel-card">
@@ -51,14 +53,11 @@ $id = $_SESSION['id'];
             <input type="file" name="archivo" required>
             <button type="submit">Subir Archivo</button>
         </form>
+        <h2>Mis Clases</h2>
+
+
     </div>
 
-    <div class="clase-card">
-        <div class="clase-banner" style="background-image: url('/SuizaConecta/uploads/banners/<?php echo $clase['banner']; ?>')"></div>
-        <h3><?php echo $clase['nombre']; ?></h3>
-        <p><?php echo $clase['descripcion']; ?></p>
-        <a href="ver_clase.php?id=<?php echo $clase['id']; ?>" class="btn">Entrar</a>
-    </div>
 
 
     <div class="panel-card">
