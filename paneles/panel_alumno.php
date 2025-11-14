@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("/SuizaConecta/php/php/conexion.php");
+
 
 
 if (!isset($_SESSION['id'])) {
@@ -43,29 +43,6 @@ $id = $_SESSION['id'];
 <main>
     <h2>Mis Clases</h2>
 
-    <?php
-    
-    $sql = "SELECT c.* 
-            FROM clases c
-            JOIN clase_alumnos ca ON ca.clase_id = c.id
-            WHERE ca.alumno_id = $id";
-
-    $result = $conn->query($sql);
-    while ($clase = $clases->fetch_assoc()):
-
-    if ($result && $result->num_rows > 0) {
-        while ($clase = $result->fetch_assoc()) {
-            echo "
-            <div class='card'>
-                <h3>".$clase['nombre']."</h3>
-                <p>".$clase['descripcion']."</p>
-                <a href='/SuizaConecta/php/php/ver_clase.php?id=".$clase['id']."' class='btn'>Entrar</a>
-            </div>";
-        }
-    } else {
-        echo "<p>No estás unido a ninguna clase todavía.</p>";
-    }
-    ?>
 
 </main>
 
