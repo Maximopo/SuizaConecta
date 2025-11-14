@@ -5,7 +5,7 @@ include("conexion.php");
 $foto = !empty($_SESSION['foto']) ? $_SESSION['foto'] : "default.png";
 
 if (!isset($_SESSION['nombre']) || !isset($_SESSION['rol'])) {
-    header("Location: /SuizaConecta/login/login.html");
+    header("Location: ../login/login.html");
     exit();
 }
 
@@ -18,7 +18,7 @@ $rol = $_SESSION['rol'];
 <head>
   <meta charset="UTF-8">
   <title>Clases - SuizaConecta</title>
-  <link rel="stylesheet" href="/SuizaConecta/css/clases.css">
+  <link rel="stylesheet" href="../css/clases.css">
 
 </head>
 <body>
@@ -27,12 +27,12 @@ $rol = $_SESSION['rol'];
     <h1>SuizaConecta</h1>
     <nav>
         <ul class="nav-links">
-                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
-                <li><a href="/SuizaConecta/paneles/configuracion.php">Mi cuenta</a></li>
-                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../paneles/configuracion.php">Mi cuenta</a></li>
+                <li><a href="../php/php/logout.php">Cerrar sesión</a></li>
                 <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
-            <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
+            <img src="../php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
         </ul>
     </nav>
