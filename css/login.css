@@ -44,9 +44,7 @@ header h1{
   color: var(--blanco);
   
 }
-nav{
-    
-}
+
 .nav-links {
   list-style: none;
   display: flex;
