@@ -5,12 +5,12 @@ include("conexion.php");
 
 
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'docente') {
-    echo "<script>alert('No autorizado'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('No autorizado'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
 if (!isset($_FILES['archivo'])) {
-    echo "<script>alert('No se envió archivo'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('No se envió archivo'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
@@ -30,18 +30,18 @@ $allowedMime = [
 ];
 
 if ($error !== UPLOAD_ERR_OK) {
-    echo "<script>alert('Error en la subida (código: $error).'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('Error en la subida (código: $error).'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
 if ($tamanio > $maxSize) {
-    echo "<script>alert('El archivo supera el tamaño máximo (8 MB).'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('El archivo supera el tamaño máximo (8 MB).'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
 $ext = strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
 if (!in_array($ext, $allowedExt)) {
-    echo "<script>alert('Extensión no permitida.'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('Extensión no permitida.'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
@@ -51,7 +51,7 @@ $mime = finfo_file($finfo, $tmpPath);
 finfo_close($finfo);
 
 if (!in_array($mime, $allowedMime)) {
-    echo "<script>alert('Tipo de archivo no permitido.'); window.location='../paneles/panel_docente.php';</script>";
+    echo "<script>alert('Tipo de archivo no permitido.'); window.location='/SuizaConecta/paneles/panel_docente.php';</script>";
     exit();
 }
 
