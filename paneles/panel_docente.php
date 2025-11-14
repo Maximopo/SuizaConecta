@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['nombre']) || $_SESSION['rol'] != 'docente') {
-    header("Location: /SuizaConecta/login.html");
+    header("Location: /SuizaConecta/login/login.html");
     exit();
 }
 ?>
