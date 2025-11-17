@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("conexion.php");
 
 if (!isset($_SESSION['id'])) {
     header("Location: /SuizaConecta/login.html");
@@ -30,7 +30,6 @@ $id = $_SESSION['id'];
                 <li><a href="/SuizaConecta/index.html">Inicio</a></li>
                 <li><a href="/SuizaConecta/php/php/clases.php">Clases</a></li>
                 <li><a href="configuracion.php">Mi cuenta</a></li>
-                <li><a href="/SuizaConecta/php/php/logout.php">Cerrar sesión</a></li>
                 <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
             <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
