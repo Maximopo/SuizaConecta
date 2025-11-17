@@ -31,7 +31,7 @@ $rol = $_SESSION['rol'];
                 <li><a href="/SuizaConecta/paneles/configuracion.php">Mi cuenta</a></li>
                 <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
-            <img src="../php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
+            <img src="/SuizaConecta/php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
             </li>
         </ul>
     </nav>
