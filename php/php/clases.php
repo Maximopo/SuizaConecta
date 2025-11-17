@@ -18,7 +18,7 @@ $rol = $_SESSION['rol'];
 <head>
   <meta charset="UTF-8">
   <title>Clases - SuizaConecta</title>
-  <link rel="stylesheet" href="../css/clases.css">
+  <link rel="stylesheet" href="/SuizaConecta/css/clases.css">
 
 </head>
 <body>
@@ -27,9 +27,8 @@ $rol = $_SESSION['rol'];
     <h1>SuizaConecta</h1>
     <nav>
         <ul class="nav-links">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../paneles/configuracion.php">Mi cuenta</a></li>
-                <li><a href="../php/php/logout.php">Cerrar sesión</a></li>
+                <li><a href="/SuizaConecta/index.html">Inicio</a></li>
+                <li><a href="/SuizaConecta/paneles/configuracion.php">Mi cuenta</a></li>
                 <li class="user-info"><?php echo $nombre; ?></li>
             <li class="perfil">
             <img src="../php/uploads/perfiles/<?php echo htmlspecialchars($foto); ?>" class="perfil-img">
