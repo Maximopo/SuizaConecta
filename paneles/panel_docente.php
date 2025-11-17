@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-
+include("../php/php/conexion.php");
 
 if (!isset($_SESSION['id'])) {
     header("Location: /SuizaConecta/login.html");
